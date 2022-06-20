@@ -22,3 +22,13 @@ def test_add_max_items_to_cart():
         cart = ShoppingChart(2)
         for i in range(len(item)):
             cart.addItem(item[i])
+
+
+def test_total_qty():
+    cart = ShoppingChart(3)
+    cart.addItem('apple')
+    cart.addItem('banana')
+    price_map = {'apple': 1.0, 'banana': 2.0}
+    cart.totalPrice(price_map)
+    # print('testing total pricing')
+    assert cart.totalPrice(price_map) == 3.0

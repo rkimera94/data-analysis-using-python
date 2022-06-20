@@ -36,6 +36,13 @@ class ShoppingChart(object):
     def deleteItem(self):
         pass
 
+    def totalPrice(self, price_map):
+        total_price = 0
+        for i in self.elements:
+            total_price += price_map.get(i)
+
+        return total_price
+
 
 item = ['apple', 'banana']
 app = ShoppingChart(2)
@@ -48,3 +55,8 @@ cart = ShoppingChart(2)
 
 for i in range(len(item)):
     cart.addItem(item[i])
+
+
+''' test total price calculation'''
+item_dict = {'apple': 1.0, 'banana': 2.0}
+print(cart.totalPrice(item_dict))
